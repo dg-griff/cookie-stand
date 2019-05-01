@@ -1,0 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Orbitron:bold|Permanent+Marker|Russo+One|Special+Elite|Quantico:bold|Acme|Exo+2:400,700|Montserrat:400,500,600,700|Play|Roboto:400,700|Ubuntu:400,700');
+
+body {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    font-weight: 700;
+    color: salmon;
+    background-color: black;
+    /* margin-left: 10px;
+    margin-right: 10px; */
+}
+
+.navi {
+    font-family: 'Orbitron', 'Helvetica', 'Arial', sans-serif;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: white;
+}
+
+img.logo {
+    width: 60px;
+    height: 18px;
+    padding: 15px 15px;
+}
+
+a:link, a:visited, a:hover, a:active {
+    text-decoration: none;
+}
+
+li a.tab {
+    list-style-type: none;
+    display: block;
+    color: salmon;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+li a.tab:hover {
+    color: salmon;
+    background-color: black;
+    border-color: black;
+}
+
+.navbar {
+    float: left;
+}
+
+h5 {
+    font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+    text-align: center;
+    color: salmon;
+    padding: 30px;
+}
