@@ -46,7 +46,7 @@ randomCustomerHour(localeFive.address, localeFive.maxCustomer);
 
 /*Calculate and store the simulated amounts of cookies purchased for each hour at each location 
 using average cookies purchased and the random number of customers generated, using the coookieHour function */
-cookieHour(randomCustomerHour(localeOne.address, localeOne.maxCustomer, localeOne.address), localeOne.avgCookie);
+cookieHour(randomCustomerHour(localeOne.address, localeOne.maxCustomer), localeOne.avgCookie, localeOne.address);
 cookieHour(randomCustomerHour(localeTwo.address, localeTwo.maxCustomer), localeTwo.avgCookie, localeTwo.address);
 cookieHour(randomCustomerHour(localeThree.address, localeThree.maxCustomer), localeThree.avgCookie, localeThree.address);
 cookieHour(randomCustomerHour(localeFour.address, localeFour.maxCustomer), localeFour.avgCookie, localeFour.address);
