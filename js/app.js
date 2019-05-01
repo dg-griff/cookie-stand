@@ -1,4 +1,4 @@
-// Create an object for each location
+// 1. Create an object for each location
 
 var localeOne = {
     address: '1st & Pike',
@@ -36,7 +36,7 @@ var localeFive = {
 }
 
 
-/* Generate a random number of customers per hour 
+/* 2. Generate a random number of customers per hour 
 using the randomCustomerHour function */
 randomCustomerHour(localeOne.address, localeOne.maxCustomer);
 randomCustomerHour(localeTwo.address, localeTwo.maxCustomer);
@@ -44,14 +44,19 @@ randomCustomerHour(localeThree.address, localeThree.maxCustomer);
 randomCustomerHour(localeFour.address, localeFour.maxCustomer);
 randomCustomerHour(localeFive.address, localeFive.maxCustomer);
 
-/*Calculate and store the simulated amounts of cookies purchased for each hour at each location 
+/* 3. Calculate and store the simulated amounts of cookies purchased for each hour at each location 
 using average cookies purchased and the random number of customers generated, using the coookieHour function */
-cookieHour(randomCustomerHour(localeOne.address, localeOne.maxCustomer), localeOne.avgCookie, localeOne.address);
-cookieHour(randomCustomerHour(localeTwo.address, localeTwo.maxCustomer), localeTwo.avgCookie, localeTwo.address);
-cookieHour(randomCustomerHour(localeThree.address, localeThree.maxCustomer), localeThree.avgCookie, localeThree.address);
-cookieHour(randomCustomerHour(localeFour.address, localeFour.maxCustomer), localeFour.avgCookie, localeFour.address);
-cookieHour(randomCustomerHour(localeFive.address, localeFive.maxCustomer), localeFive.avgCookie, localeFive.address);
+var daySalesOne = cookieHour(randomCustomerHour(localeOne.address, localeOne.maxCustomer), localeOne.avgCookie, localeOne.address);
+// console.log(`${daySalesOne}`);
+var daySalesTwo = cookieHour(randomCustomerHour(localeTwo.address, localeTwo.maxCustomer), localeTwo.avgCookie, localeTwo.address);
+var daySalesThree = cookieHour(randomCustomerHour(localeThree.address, localeThree.maxCustomer), localeThree.avgCookie, localeThree.address);
+var daySalesFour = cookieHour(randomCustomerHour(localeFour.address, localeFour.maxCustomer), localeFour.avgCookie, localeFour.address);
+var daySalesFive = cookieHour(randomCustomerHour(localeFive.address, localeFive.maxCustomer), localeFive.avgCookie, localeFive.address);
 
+/* 4. Store the results for each location in a separate array... 
+perhaps as a property of the object representing that location */
+var hourSale = cookieHour(daySalesOne, localeOne.avgCookie, localeOne.address);
+console.log(`${hourSale[0]}, ${hourSale[2]}`)
 
 
 
@@ -61,17 +66,24 @@ cookieHour(randomCustomerHour(localeFive.address, localeFive.maxCustomer), local
 function randomCustomerHour(address, maxCustomer) {
     var locale = address;
     var randomCustomer = Math.floor(Math.random() * maxCustomer);
-    console.log('Random number of customers per hour for ' + locale + ': ' + randomCustomer + '.');
+    // console.log('Random number of customers per hour for ' + locale + ': ' + randomCustomer + '.');
     return randomCustomer;
 }
 
-function cookieHour(customerRandom, cookieAvg, address) {
+function cookieHour(customerHour, cookieAvg, address) {
     var locale = address;
-    var cookieCustomer = cookieAvg;
-    console.log('Average cookie per customer: ' + cookieCustomer + '.');
-    var customerHour = customerRandom;
-    console.log('Average customer per hour: ' + customerHour + '.');
-    var cookieSubtotal = Math.floor(cookieCustomer * customerHour);
-    console.log('Total cookies sold for the hour at ' + locale + ': ' + cookieSubtotal + ' cookies.');
-    return cookieSubtotal;
+    var avg = cookieAvg;
+    var consumer = randomCustomerHour(localeOne.address, localeOne.maxCustomer);
+    var hoursOpen = [06, 07, 08, 09, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+    var cookieSold;
+    var locArray = [localeOne.address, localeTwo.address, localeThree.address, localeFour.address, localeFive.address];
+    for (var i = 0; i < 15; i++) {
+        var consumer = randomCustomerHour(locArray[i], localeOne.maxCustomer);
+        // console.log(consumer);
+        for (var j = 0; j < hoursOpen.length; j++) {
+            cookieSold = Math.floor(avg * consumer);
+            // console.log(`Cookies sold at ${hoursOpen[i]} at ${locale} : ${cookieSold}`);
+        }
+    }
+    return [locale, hoursOpen, cookieSold];
 }
