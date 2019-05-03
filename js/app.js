@@ -75,111 +75,10 @@ console.log(`Cookies sold during the hour were: ${cookieHourFour} cookies.`);
 var cookieHourFive = calcCookieSold(localeFive.avgCookie, customerHourLocaleFive);
 console.log(`Cookies sold during the hour were: ${cookieHourFive} cookies.`);
 
-/*
 // Calculate total cookies sold for each of the 15 hours
-var cookieTotalOne = [getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[0]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[1]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[2]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[3]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[4]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[5]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[6]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[7]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[8]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[9]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[10]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[11]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[12]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[13]), 
-getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[14])];
-
-console.log(cookieTotalOne);
-console.log('================')
-
-var cookieTotalTwo = [getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[0]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[1]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[2]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[3]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[4]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[5]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[6]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[7]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[8]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[9]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[10]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[11]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[12]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[13]), 
-getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[14])];
-
-console.log(cookieTotalTwo);
-console.log('================')
-
-var cookieTotalThree = [getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[0]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[1]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[2]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[3]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[4]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[5]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[6]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[7]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[8]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[9]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[10]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[11]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[12]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[13]), 
-getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[14])];
-
-console.log(cookieTotalThree);
-console.log('================')
-
-var cookieTotalFour = [getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[0]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[1]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[2]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[3]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[4]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[5]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[6]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[7]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[8]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[9]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[10]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[11]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[12]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[13]), 
-getCookies(localeFour.avgCookie, localeFour.maxCustomer, localeFour.address, localeFour.hoursOpen[14])];
-
-console.log(cookieTotalFour);
-console.log('================')
-
-var cookieTotalFive = [(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[0])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[1])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[2])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[3])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[4])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[5])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[6])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[7])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[8])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[9])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[10])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[11])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[12])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[13])), 
-(getCookies(localeFive.avgCookie, localeFive.maxCustomer, localeFive.address, localeFive.hoursOpen[14]))];
-
-
-console.log(cookieTotalFive);
-console.log('================') */
-
-
+var cookieTotalOne = getCookies(localeOne.avgCookie, localeOne.maxCustomer, localeOne.address, localeOne.hoursOpen[0]);
 console.log('=========');
-var cookieTotalTwo = [getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[0]), getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[1])];
-alert(cookieTotalTwo[0]);
-
-document.getElementById('report').appendChild(renderUl(cookieTotalTwo[0]));
-console.log(cookieTotalTwo);
+var cookieTotalTwo = getCookies(localeTwo.avgCookie, localeTwo.maxCustomer, localeTwo.address, localeTwo.hoursOpen[0]);
 console.log('=========');
 var cookieTotalThree = getCookies(localeThree.avgCookie, localeThree.maxCustomer, localeThree.address, localeThree.hoursOpen[0]);
 console.log('=========');
@@ -249,7 +148,7 @@ function getCookies(avg, maxCustomer, locale, hour) {
             // console.log(hourCookie);
         }
     }
-    // alert(cookieTotalArr);
+    alert(cookieTotalArr);
     return cookieTotalArr;
 }
 
@@ -261,18 +160,4 @@ function renderArray(avg, maxCustomer, address) {
     }
     // console.log(cookieTotal);
     return cookieTotal;   
-}
-
-function renderUl(array) {
-    var list = document.createElement('ul');  // create list element
-
-    for (var n = 0; n < array.length; n++) {
-        var item = document.createElement('li'); // create list item
-    }
-
-    item.appendChild(document.createTextNode(array[n])); // set list contents
-
-    list.appendChild(item); // add to list
-
-    return list;
 }
