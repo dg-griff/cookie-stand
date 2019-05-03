@@ -59,18 +59,11 @@ using the randomCustomerHour function.
 Store the customers generated for each location in a variable */
 var custHourOne = localeOne.randomCustomer();
 // console.log(`Random number of customers generated for localeOne: ${custHourOne} customers`);
-
 var custHourTwo = localeTwo.randomCustomer();
-// console.log(`Random number of customers generated for localeTwo: ${custHourTwo} customers`);
-
 var custHourThree = localeThree.randomCustomer();
-// console.log(`Random number of customers generated for localeThree: ${custHourThree} customers`);
-
 var custHourFour = localeFour.randomCustomer();
-// console.log(`Random number of customers generated for localeFour: ${custHourFour} customers`);
-
 var custHourFive = localeFive.randomCustomer();
-// console.log(`Random number of customers generated for localeFive: ${custHourFive} customers`);
+
 
 
 /* 3. Calculate and store the simulated amounts of cookies 
@@ -78,6 +71,21 @@ purchased for each hour at each location
 using average cookies purchased and the random number 
 of customers generated. */
 
+var cookieSumLocaleOne = soldCookies(localeOne.avgCookie, localeOne.randomCustomer());
+console.log(`Total cookies sold for 1 hour at localeOne: ${cookieSumLocaleOne} cookies`);
+
+var hoursOpen = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
+
+var cookieSoldOne = [];
+
+// Populate array using the .push() method
+/* for (var i = 0; i < hoursOpen.length; i++) {
+    cookieSoldOne.push(soldCookies(localeOne.avgCookie, localeOne.randomCustomer()));
+} */
+
+for (var i = 0; i < hoursOpen.length; i++) {
+    cookieSoldOne[i] = soldCookies(localeOne.avgCookie, localeOne.randomCustomer());
+}
 
 
 
@@ -94,22 +102,7 @@ function randomCustomerHour(minCustomer, maxCustomer) {
     return randNum(minCustomer, maxCustomer);
 }
 
-// Generate
+// Generate cookies sold for a particular hour
 function soldCookies (avgCookie, customerHour) {
     return Math.ceil(avgCookie * customerHour); 
-}
-
-var cookieSumLocaleOne = soldCookies(localeOne.avgCookie, localeOne.randomCustomer());
-console.log(`Total cookies sold for 1 hour at localeOne: ${cookieSumLocaleOne} cookies`);
-
-var hoursOpen = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-
-var cookieSoldOne = [];
-
-for (var i = 0; i < hoursOpen.length; i++) {
-    // cookieSoldOne.push(soldCookies(localeOne.avgCookie, localeOne.randomCustomer()));
-}
-
-for (var i = 0; i < hoursOpen.length; i++) {
-    cookieSoldOne[i] = soldCookies(localeOne.avgCookie, localeOne.randomCustomer());
 }
