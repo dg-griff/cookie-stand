@@ -148,7 +148,7 @@ function getCookies(avg, maxCustomer, locale, hour) {
             // console.log(hourCookie);
         }
     }
-    alert(cookieTotalArr);
+    console.log(cookieTotalArr);
     return cookieTotalArr;
 }
 
