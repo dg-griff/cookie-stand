@@ -120,6 +120,15 @@ console.log(`Total cookies sold for each hour at ${localeFour.address}: ${cookie
 var cookieDataFive = populateHourlyCookies(localeFive);
 console.log(`Total cookies sold for each hour at ${localeFive.address}: ${cookieDataFive}`);
 
+/* Add each array as a property on the object for each location */
+localeOne.cookieSold = cookieDataOne;
+// console.log(localeOne.cookieSold);
+
+localeTwo.cookieSold = cookieDataTwo;
+localeThree.cookieSold = cookieDataThree;
+localeFour.cookieSold = cookieDataFour;
+localeFive.cookieSold = cookieDataFive;
+
 
 
 
