@@ -73,13 +73,13 @@ h5 {
 }
 
 img.banner {
-    max-width:5%;
-    max-height:5%;
-    display: block;
+    max-width:20%;
+    max-height:20%;
+    /* display: block; */
     margin: 0 auto;
 }
 
-@-webkit-keyframes zoomIn {
+@keyframes zoomIn {
     from {
       opacity: 0;
       -webkit-transform: scale3d(0.3, 0.3, 0.3);
@@ -115,7 +115,7 @@ img.banner {
   color: white;
 }
 
-@-webkit-keyframes pulse {
+@keyframes pulse {
     from {
       -webkit-transform: scale3d(1, 1, 1);
       transform: scale3d(1, 1, 1);

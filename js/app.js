@@ -55,7 +55,6 @@ var localeFive = {
 
 /* 2. Generate a random number of customers per hour 
 using the randomCustomerHour function. 
-
 Store the customers generated for each location in a variable */
 var custHourOne = localeOne.randomCustomer();
 // console.log(`Random number of customers generated for localeOne: ${custHourOne} customers`);
@@ -134,9 +133,7 @@ localeFive.cookieSold = cookieDataFive;
 
 
 /* 6. Calculating the sum of these hourly totals; your output for each location should look like this:
-
 1st and Pike
-
 6am: 16 cookies
 7am: 20 cookie */
 
