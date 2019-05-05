@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Orbitron:bold|Permanent+Marker|Russo+One|Special+Elite|Quantico:bold|Acme|Exo+2:400,700|Montserrat:400,500,600,700|Play|Roboto:400,700|Ubuntu:400,700');
 
+/* *{border: 5px solid red} */
+
 body {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     font-weight: 700;
@@ -65,7 +67,7 @@ h5 {
     font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
     text-align: center;
     color: salmon;
-    padding: 30px 10px;
+    margin: 30px 10px;
 }
 
 .info {
@@ -77,6 +79,26 @@ img.banner {
     max-height:20%;
     /* display: block; */
     margin: 0 auto;
+}
+
+table {
+  margin: 25px 0 0;
+  border: 2px solid white;
+  border-collapse: collapse;
+  font-size: 0.90em;
+}
+
+td {
+  margin: 15px 0 0;
+  border: 2px solid white;
+  padding: 20px 5px;
+}
+
+th {
+  border: 2px solid white;
+  font-family: 'Orbitron', 'Helvetica', 'Arial', sans-serif;
+  padding: 10px 5px;
+  /* font-size: 0.85em; */
 }
 
 @keyframes zoomIn {
