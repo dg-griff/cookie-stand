@@ -73,9 +73,9 @@ h5 {
 }
 
 img.banner {
-    max-width:5%;
-    max-height:5%;
-    display: block;
+    max-width:20%;
+    max-height:20%;
+    /* display: block; */
     margin: 0 auto;
 }
 
