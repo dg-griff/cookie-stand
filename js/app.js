@@ -1,56 +1,25 @@
 'use strict';
 
-// 1. Create an object for each location
+/* Implement a constructor function */
 
-var localeOne = {
-    address: '1st & Pike',
-    minCustomer: 23,
-    maxCustomer: 65,
-    avgCookie: 6.3,
-    randomCustomer: function () {
+function Locale(address, minCustomer, maxCustomer, avgCookie) {
+    this.address = address;
+    this.minCustomer = minCustomer;
+    this.maxCustomer = maxCustomer;
+    this.avgCookie = avgCookie;
+    this.randomCustomer = function () {
         return randNum(this.minCustomer, this.maxCustomer);
-    }
+    };
 }
 
-var localeTwo = {
-    address: 'SeaTac Airport',
-    minCustomer: 3,
-    maxCustomer: 24,
-    avgCookie: 1.2,
-    randomCustomer: function () {
-        return randNum(this.minCustomer, this.maxCustomer);
-    }
-}
+/* Use the constructor function to create an object for each location using the 'new' keyword */
 
-var localeThree = {
-    address: 'Seattle Center',
-    minCustomer: 11,
-    maxCustomer: 38,
-    avgCookie: 3.7,
-    randomCustomer: function () {
-        return randNum(this.minCustomer, this.maxCustomer);
-    }
-}
-
-var localeFour = {
-    address: 'Capitol Hill',
-    minCustomer: 20,
-    maxCustomer: 38,
-    avgCookie: 2.3,
-    randomCustomer: function () {
-        return randNum(this.minCustomer, this.maxCustomer);
-    }
-}
-
-var localeFive = {
-    address: 'Alki',
-    minCustomer: 2,
-    maxCustomer: 16,
-    avgCookie: 4.6,
-    randomCustomer: function () {
-        return randNum(this.minCustomer, this.maxCustomer);
-    }
-}
+var localeOne = new Locale('1st & Pike', 23, 65, 6.3);
+// console.log(localeOne);
+var localeTwo = new Locale('SeaTac Airport', 3, 24, 1.2);
+var localeThree = new Locale('Seattle Center', 11, 38, 3.7);
+var localeFour = new Locale('Capitol Hill', 20, 38, 2.3);
+var localeFive = new Locale('Alki', 2, 16, 4.6);
 
 
 /* 2. Generate a random number of customers per hour 
@@ -76,11 +45,8 @@ var cookieHourOne = soldCookies(localeOne.avgCookie, localeOne.randomCustomer())
 // console.log(`Total cookies sold for 1 hour at ${localeOne.address}: ${cookieHourOne} cookies`);
 
 var cookieHourTwo = soldCookies(localeTwo.avgCookie, localeTwo.randomCustomer());
-
 var cookieHourThree = soldCookies(localeThree.avgCookie, localeThree.randomCustomer());
-
 var cookieHourFour = soldCookies(localeFour.avgCookie, localeFour.randomCustomer());
-
 var cookieHourFive = soldCookies(localeFive.avgCookie, localeFive.randomCustomer());
 
 
@@ -90,11 +56,8 @@ var everyCookieHourOne = everyHour(localeOne);
 // console.log(`Cookies sold for each hour at ${localeOne.address}: ${everyCookieHourOne}`);
 
 var everyCookieHourTwo= everyHour(localeTwo);
-
 var everyCookieHourThree = everyHour(localeThree);
-
 var everyCookieHourFour = everyHour(localeFour);
-
 var everyCookieHourFive = everyHour(localeFive);
 
 
@@ -108,29 +71,30 @@ var cookieDataOne = populateHourlyCookies(localeOne);
 console.log(`Total cookies sold for each hour at ${localeOne.address}: ${cookieDataOne}`);
 
 var cookieDataTwo = populateHourlyCookies(localeTwo);
-console.log(`Total cookies sold for each hour at ${localeTwo.address}: ${cookieDataTwo}`);
-
 var cookieDataThree = populateHourlyCookies(localeThree);
-console.log(`Total cookies sold for each hour at ${localeThree.address}: ${cookieDataThree}`);
-
 var cookieDataFour = populateHourlyCookies(localeFour);
-console.log(`Total cookies sold for each hour at ${localeFour.address}: ${cookieDataFour}`);
-
 var cookieDataFive = populateHourlyCookies(localeFive);
-console.log(`Total cookies sold for each hour at ${localeFive.address}: ${cookieDataFive}`);
+
+// Calculate total cookies sold for the day at each locale
+var cookieSumOne = cookieDataOne.reduce(getCookieTotal);
+console.log(cookieSumOne);
+
+var cookieSumTwo = cookieDataTwo.reduce(getCookieTotal);
+var cookieSumThree = cookieDataThree.reduce(getCookieTotal);
+var cookieSumFour = cookieDataFour.reduce(getCookieTotal);
+var cookieSumFive = cookieDataFive.reduce(getCookieTotal);
 
 /* Add each array as a property on the object for each location */
-localeOne.cookieSold = cookieDataOne;
-// console.log(localeOne.cookieSold);
+var listTotalOne = cookieDataOne.unshift(localeOne.address);
+console.log(cookieDataOne);
 
-localeTwo.cookieSold = cookieDataTwo;
-localeThree.cookieSold = cookieDataThree;
-localeFour.cookieSold = cookieDataFour;
-localeFive.cookieSold = cookieDataFive;
+// Add locale to the front of the array
+var listTotalTwo = cookieDataTwo.unshift(localeTwo.address);
+var listTotalThree = cookieDataThree.unshift(localeThree.address);
+var listTotalFour = cookieDataFour.unshift(localeFour.address);
+var listTotalFive = cookieDataFive.unshift(localeFive.address);
 
-
-
-
+/* 5. - see line 105 */
 
 /* 6. Calculating the sum of these hourly totals; your output for each location should look like this:
 1st and Pike
@@ -138,27 +102,68 @@ localeFive.cookieSold = cookieDataFive;
 7am: 20 cookie */
 
 // Calculate total cookies sold for the day at each location
+console.log(cookieDataOne);
 var totalCookiesOne = cookieDataOne.reduce(getCookieTotal);
 console.log(`Total cookies sold for ${localeOne.address}: ${totalCookiesOne}`);
 
+
 var totalCookiesTwo = cookieDataTwo.reduce(getCookieTotal);
+console.log(cookieDataTwo);
 var totalCookiesThree = cookieDataThree.reduce(getCookieTotal);
 var totalCookiesFour = cookieDataFour.reduce(getCookieTotal);
 var totalCookiesFive = cookieDataFive.reduce(getCookieTotal);
 
+// Add cookie total to end of each locale's array
+cookieDataOne.push(cookieSumOne);
+cookieDataTwo.push(cookieSumTwo);
+cookieDataThree.push(cookieSumThree);
+cookieDataFour.push(cookieSumFour);
+cookieDataFive.push(cookieSumFive);
 
-/* 5. Display the values of each array as unordered lists in the browser */
+
+/* 5. Display the values of each array as unordered lists in the browser 
 
 // Render the array as an UL on the sales page
-renderUl(cookieDataOne, 'reportOne', localeOne, 'headingOne', totalCookiesOne); // Array for LocaleOne
-renderUl(cookieDataTwo, 'reportTwo', localeTwo, 'headingTwo', totalCookiesTwo); // Array for LocaleTwo
-renderUl(cookieDataThree, 'reportThree', localeThree, 'headingThree', totalCookiesThree); // Array for LocaleThree
-renderUl(cookieDataFour, 'reportFour', localeFour, 'headingFour', totalCookiesFour); // Array for LocaleFour
-renderUl(cookieDataFive, 'reportFive', localeFive, 'headingFive', totalCookiesFive); // Array for LocaleFive
+renderUl(cookieDataOne, 'reportOne', localeOne, 'headingOne', cookieSumOne); // Array for LocaleOne
+renderUl(cookieDataTwo, 'reportTwo', localeTwo, 'headingTwo', cookieSumTwo); // Array for LocaleTwo
+renderUl(cookieDataThree, 'reportThree', localeThree, 'headingThree', cookieSumThree); // Array for LocaleThree
+renderUl(cookieDataFour, 'reportFour', localeFour, 'headingFour', cookieSumFour); // Array for LocaleFour
+renderUl(cookieDataFive, 'reportFive', localeFive, 'headingFive', cookieSumFive); // Array for LocaleFive */
+
+
+/******************************************************/
+/* Lab 07 */
+
+/* create a table to store the lists of data for each location */
+
+var sectionElement = document.getElementById("table-data");
+
+// var tableElement = document.createElement("table");
+// sectionElement.appendChild(tableElement);
+var newTable = render(sectionElement, "table");
+
+// var tableRow = document.createElement("tr");
+// tableElement.appendChild(tableRow);
+// var newRow = render(newTable, "tr");
+
+// var tableCell = document.createElement("td");
+// tableCell.textContent = "This is a test.";
+// tableRow.appendChild(tableCell);
+// var newCell = render(newRow, "td", "This is a test");
+
+var headings = ['', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
+
+// renderHeading();
+rowRender(newTable, headings);
+rowRender(newTable, cookieDataOne);
+rowRender(newTable, cookieDataTwo);
+rowRender(newTable, cookieDataThree);
+rowRender(newTable, cookieDataFour);
+rowRender(newTable, cookieDataFive);
 
 
 
-
+/******************************************************/
 // Function definitions
 
 // Generate a random number of customers
@@ -219,4 +224,34 @@ function renderUl(cookies, id, locale, headingId, total) {
 // Calculate total cookies sold from 6 am to 8 pm
 function getCookieTotal(totalCookies, cookie) {
     return totalCookies + cookie;
+}
+
+// Create a table
+function render(parent, elementType, data) {
+    var element = document.createElement(elementType);
+    if (data) {
+        element.textContent = data;
+    }
+    parent.appendChild(element);
+    return element;
+}
+
+// Create and show table headings
+function renderHeading() {
+    var tableElement = render(sectionElement, "table");
+    tableElement.setAttribute("id", "report");
+    var tableRow = render(tableElement, "tr");
+    var headings = ['','6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
+
+    headings.forEach(function(heading) {
+        render(tableRow, "th", heading);
+    });
+}
+
+// Create a row
+function rowRender(table, dataArray) {
+    var newRow = render(table, "tr");
+    for (var f = 0; f < dataArray.length; f++) {
+        render(newRow, "td", dataArray[f]);
+    }
 }
