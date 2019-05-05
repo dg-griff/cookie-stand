@@ -1,5 +1,7 @@
 'use strict';
 
+/* N.B. - Code specific to lab 7 can be found on lines 5-24, lines 111-125, lines 139-166 and  lines 233-261 */
+
 /* Implement a constructor function */
 
 function Locale(address, minCustomer, maxCustomer, avgCookie) {
@@ -106,7 +108,9 @@ console.log(cookieDataOne);
 var totalCookiesOne = cookieDataOne.reduce(getCookieTotal);
 console.log(`Total cookies sold for ${localeOne.address}: ${totalCookiesOne}`);
 
+/* Lab 07 Code */
 
+// Calculate total cookies sold for the day at each location
 var totalCookiesTwo = cookieDataTwo.reduce(getCookieTotal);
 console.log(cookieDataTwo);
 var totalCookiesThree = cookieDataThree.reduce(getCookieTotal);
