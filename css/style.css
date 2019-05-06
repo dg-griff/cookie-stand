@@ -101,6 +101,14 @@ th {
   /* font-size: 0.85em; */
 }
 
+#address, #minCustomer, #maxCustomer, #avgCookie, #add, #reset {
+  display: block;
+}
+
+/* #field {
+  background-color: white;
+} */
+
 @keyframes zoomIn {
     from {
       opacity: 0;
