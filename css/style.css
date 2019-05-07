@@ -106,7 +106,7 @@ th {
   /* font-size: 0.85em; */
 }
 
-#address, #minCustomer, #maxCustomer, #avgCookie, #add, #reset {
+#addressField, #minCustomerField, #maxCustomerField, #avgCookieField, #add, #reset {
   display: block;
 }
 
