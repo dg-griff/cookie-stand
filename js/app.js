@@ -170,7 +170,6 @@ rowRenderTable(newTable, cookieDataFive);
 
 /******************************************************/
 
-/* Add event handler */
 
 
 
@@ -316,6 +315,19 @@ function handleSubmission(event) {
 
     var avgCookie = event.target.avgCookieField.value;
     console.log("avgCookie entered was ", avgCookie);
+
+    if (minCustomer < 1) {
+        minCustomer.setCustomValidity("Please enter a number greater or equal to 1.");
+    } else {
+        minCustomer.setCustomValidity("");
+    }
+
+    if (maxCustomer > 50) {
+        maxCustomer.setCustomValidity("Please enter a number less than or equal to 50.");
+    } else {
+        maxCustomer.setCustomValidity("");
+    }
+
 
     // Create new locale object using form data
     var formLocale = new Locale(address, minCustomer, maxCustomer, avgCookie);
