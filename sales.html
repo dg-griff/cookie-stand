@@ -43,21 +43,21 @@
             </section>
 
             <section>
-                <form action="#" id="locale-form">
+                <form action="#" id="locale-form" autocomplete="off">
                     <fieldset id="field">
                         <legend>Add New Locale</legend>
 
                         <label for="address">Enter the address:</label>
-                        <input type="text" name="address-field" id="addressField" />
+                        <input type="text" name="address-field" id="addressField" placeholder="address" maxlength="12" required />
 
                         <label for="minCustomer">Enter minimum customers per hour:</label>
-                        <input type="text" name="minCust-field" id="minCustomerField" />
+                        <input type="number" name="minCust-field" id="minCustomerField" placeholder="Number more than 1" required />
 
                         <label for="maxCustomer">Enter maximum customers per hour:</label>
-                        <input type="text" name="maxCust-field" id="maxCustomerField" />
+                        <input type="number" name="maxCust-field" id="maxCustomerField" placeholder="Number less than 50" required />
 
                         <label for="avgCookie">Enter average cookies sold per hour:</label>
-                        <input type="text" name="avgCookie-field" id="avgCookieField" />
+                        <input type="number" name="avgCookie-field" id="avgCookieField" placeholder="cookie average" required />
 
                         <button type="submit" id="add">Add New</button>
                         <button type="reset" id="reset">Clear</button>
