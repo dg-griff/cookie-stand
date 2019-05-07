@@ -158,12 +158,17 @@ var newTable = render(sectionElement, "table");
 var headings = ['', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
 
 // renderHeading();
-rowRender(newTable, headings);
-rowRender(newTable, cookieDataOne);
-rowRender(newTable, cookieDataTwo);
-rowRender(newTable, cookieDataThree);
-rowRender(newTable, cookieDataFour);
-rowRender(newTable, cookieDataFive);
+rowRenderTable(newTable, headings);
+rowRenderTable(newTable, cookieDataOne);
+rowRenderTable(newTable, cookieDataTwo);
+rowRenderTable(newTable, cookieDataThree);
+rowRenderTable(newTable, cookieDataFour);
+rowRenderTable(newTable, cookieDataFive);
+
+
+/******************************************************/
+
+/* Add event handler */
 
 
 
@@ -253,9 +258,118 @@ function renderHeading() {
 }
 
 // Create a row
-function rowRender(table, dataArray) {
+function rowRenderTable(table, dataArray) {
     var newRow = render(table, "tr");
     for (var f = 0; f < dataArray.length; f++) {
         render(newRow, "td", dataArray[f]);
     }
 }
+
+// Add row from form submission
+function newRowForm(address, minCust, maxCust, cookieAverage) {
+    // Get reference to table
+    var addressTable = document.getElementById("table-data");
+
+    // Create row
+    var addressRow = document.createElement("tr");
+
+    // Add row to table
+    addressTable.appendChild(addressRow);
+
+    // Add address name to row
+    var addressName = document.createElement("td");
+    addressRow.appendChild(addressName);
+    addressName.textContent = address;
+
+    // Add address name to row
+    var minCustName = document.createElement("td");
+    addressRow.appendChild(minCustName);
+    addressName.textContent = minCust;
+
+    // Add address name to row
+    var maxCustName = document.createElement("td");
+    addressRow.appendChild(maxCustName);
+    addressName.textContent = maxCust;
+
+    // Add address name to row
+    var avgCookieName = document.createElement("td");
+    addressRow.appendChild(avgCookieName);
+    addressName.textContent = cookieAverage;
+}
+
+// Handle form submission
+function handleSubmission(event) {
+    event.preventDefault();
+
+    var localeTable = document.getElementById("table-data");
+    
+    var address = event.target.address.value;
+    console.log("address ", address);
+
+    var minCustomer = event.target.minCustomer.value;
+    console.log("minCustomer ", minCustomer);
+
+    var maxCustomer = event.target.maxCustomer.value;
+    console.log("maxCustomer ", maxCustomer);
+
+    var avgCookie = event.target.avgCookie.value;
+    console.log("avgCookie ", avgCookie);
+
+    var addressRow = document.createElement("tr");
+
+    var addressColumn = document.createElement("td");
+    addressColumn.textContent = address;
+    addressRow.appendChild(addressColumn);
+
+    var minCustColumn = document.createElement("td");
+    minCustColumn.textContent = minCustomer;
+    addressRow.appendChild(minCustColumn);
+
+    var maxCustColumn = document.createElement("td");
+    maxCustColumn.textContent = maxCustomer;
+    addressRow.appendChild(maxCustColumn);
+
+    var avgCookieColumn = document.createElement("td");
+    avgCookieColumn.textContent = avgCookie;
+    addressRow.appendChild(avgCookieColumn);
+
+    localeTable.appendChild(addressRow);
+}
+
+
+
+var localeForm = document.getElementById("locale-form");
+
+localeForm.addEventListener("submit", handleSubmission);
+
+/***/
+
+/* var formLocale = randomCustomerHour(minCustomer, maxCustomer);
+
+var formLocalehour = everyHour(formLocale);
+
+var formCookieData = populateHourlyCookies(formLocale);
+
+var cookieSumForm = formCookieData.reduce(getCookieTotal);
+
+var listTotalForm = formCookieData.unshift(formAddress);
+
+formCookieData.push(cookieSumForm); */
+
+
+
+
+
+/* function handleSubmission(event) {
+    event.preventDefault();
+
+    var taskElements = event.target.elements;
+
+    newRowForm(taskElements["address-field"].value, taskElements["minCust-field"].value, taskElements["maxCust-field"].value, taskElements["avgCookie-field"].value);
+
+    //reset form
+    taskElements["address-field"].value = null;
+    taskElements["minCust-field"].value = null;
+    taskElements["maxCust-field"].value = null;
+    taskElements["avgCookie-field"].value = null;
+} */
