@@ -88,6 +88,11 @@ table {
   font-size: 0.95em;
 }
 
+#locale-form {
+  margin: 25px 0 0;
+}
+
+
 td {
   margin: 15px 0 0;
   border: 2px solid white;
