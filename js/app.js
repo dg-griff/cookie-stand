@@ -166,6 +166,8 @@ rowRenderTable(newTable, cookieDataFour);
 rowRenderTable(newTable, cookieDataFive);
 
 
+
+
 /******************************************************/
 
 /* Add event handler */
@@ -303,73 +305,70 @@ function handleSubmission(event) {
 
     var localeTable = document.getElementById("table-data");
     
-    var address = event.target.address.value;
-    console.log("address ", address);
+    var address = event.target.addressField.value;
+    console.log("address entered was ", address);
 
-    var minCustomer = event.target.minCustomer.value;
-    console.log("minCustomer ", minCustomer);
+    var minCustomer = event.target.minCustomerField.value;
+    console.log("minCustomer entered was ", minCustomer);
 
-    var maxCustomer = event.target.maxCustomer.value;
-    console.log("maxCustomer ", maxCustomer);
+    var maxCustomer = event.target.maxCustomerField.value;
+    console.log("maxCustomer entered was ", maxCustomer);
 
-    var avgCookie = event.target.avgCookie.value;
-    console.log("avgCookie ", avgCookie);
+    var avgCookie = event.target.avgCookieField.value;
+    console.log("avgCookie entered was ", avgCookie);
 
-    var addressRow = document.createElement("tr");
+    // Create new locale object using form data
+    var formLocale = new Locale(address, minCustomer, maxCustomer, avgCookie);
+    console.log(formLocale);
 
-    var addressColumn = document.createElement("td");
-    addressColumn.textContent = address;
-    addressRow.appendChild(addressColumn);
+    // Calculate random number of customers for form locale
+    var formRandCust = randomCustomerHour(formLocale.minCustomer, formLocale.maxCustomer);
+    console.log(formRandCust);
 
-    var minCustColumn = document.createElement("td");
-    minCustColumn.textContent = minCustomer;
-    addressRow.appendChild(minCustColumn);
+    // Calculate cookes sold for each other from form locale
+    var everyCookieHourForm = everyHour(formLocale);
+    console.log(everyCookieHourForm);
 
-    var maxCustColumn = document.createElement("td");
-    maxCustColumn.textContent = maxCustomer;
-    addressRow.appendChild(maxCustColumn);
+    // Store hourly cookie totals in an array for locale form
+    var formCookieData = populateHourlyCookies(formLocale);
+    console.log(formCookieData);
 
-    var avgCookieColumn = document.createElement("td");
-    avgCookieColumn.textContent = avgCookie;
-    addressRow.appendChild(avgCookieColumn);
+    // Calculate sum of cookies sold for the day for locale form
+    var formCookieSum = formCookieData.reduce(getCookieTotal);
+    console.log(formCookieSum);
 
-    localeTable.appendChild(addressRow);
+    // Add cookie total to end of the locale array from form
+    formCookieData.push(formCookieSum);
+    console.log(formCookieData);
+
+    // Add locale address to the front of the locale array from form
+    formCookieData.unshift(address);
+    console.log(formCookieData);
+
+    rowRenderTable(newTable, formCookieData);
+
+
+    // var addressRow = document.createElement("tr");
+
+    // var addressColumn = document.createElement("td");
+    // addressColumn.textContent = address;
+    // addressRow.appendChild(addressColumn);
+
+    // var minCustColumn = document.createElement("td");
+    // minCustColumn.textContent = minCustomer;
+    // addressRow.appendChild(minCustColumn);
+
+    // var maxCustColumn = document.createElement("td");
+    // maxCustColumn.textContent = maxCustomer;
+    // addressRow.appendChild(maxCustColumn);
+
+    // var avgCookieColumn = document.createElement("td");
+    // avgCookieColumn.textContent = avgCookie;
+    // addressRow.appendChild(avgCookieColumn);
+
+    // localeTable.appendChild(addressRow);
 }
-
-
 
 var localeForm = document.getElementById("locale-form");
 
 localeForm.addEventListener("submit", handleSubmission);
-
-/***/
-
-/* var formLocale = randomCustomerHour(minCustomer, maxCustomer);
-
-var formLocalehour = everyHour(formLocale);
-
-var formCookieData = populateHourlyCookies(formLocale);
-
-var cookieSumForm = formCookieData.reduce(getCookieTotal);
-
-var listTotalForm = formCookieData.unshift(formAddress);
-
-formCookieData.push(cookieSumForm); */
-
-
-
-
-
-/* function handleSubmission(event) {
-    event.preventDefault();
-
-    var taskElements = event.target.elements;
-
-    newRowForm(taskElements["address-field"].value, taskElements["minCust-field"].value, taskElements["maxCust-field"].value, taskElements["avgCookie-field"].value);
-
-    //reset form
-    taskElements["address-field"].value = null;
-    taskElements["minCust-field"].value = null;
-    taskElements["maxCust-field"].value = null;
-    taskElements["avgCookie-field"].value = null;
-} */
