@@ -56,47 +56,12 @@ var localeFive = {
 /* 2. Generate a random number of customers per hour 
 using the randomCustomerHour function. 
 Store the customers generated for each location in a variable */
-var custHourOne = localeOne.randomCustomer();
-// console.log(`Random number of customers generated for localeOne: ${custHourOne} customers`);
-
-var custHourTwo = localeTwo.randomCustomer();
-var custHourThree = localeThree.randomCustomer();
-var custHourFour = localeFour.randomCustomer();
-var custHourFive = localeFive.randomCustomer();
-
 
 
 /* 3. Calculate and store the simulated amounts of cookies 
 purchased for each hour at each location 
 using average cookies purchased and the random number 
 of customers generated. */
-
-// Cookies sold for 1 hour
-var cookieHourOne = soldCookies(localeOne.avgCookie, localeOne.randomCustomer());
-// console.log(`Total cookies sold for 1 hour at ${localeOne.address}: ${cookieHourOne} cookies`);
-
-var cookieHourTwo = soldCookies(localeTwo.avgCookie, localeTwo.randomCustomer());
-
-var cookieHourThree = soldCookies(localeThree.avgCookie, localeThree.randomCustomer());
-
-var cookieHourFour = soldCookies(localeFour.avgCookie, localeFour.randomCustomer());
-
-var cookieHourFive = soldCookies(localeFive.avgCookie, localeFive.randomCustomer());
-
-
-// Cookies sold for each hour
-
-var everyCookieHourOne = everyHour(localeOne);
-// console.log(`Cookies sold for each hour at ${localeOne.address}: ${everyCookieHourOne}`);
-
-var everyCookieHourTwo= everyHour(localeTwo);
-
-var everyCookieHourThree = everyHour(localeThree);
-
-var everyCookieHourFour = everyHour(localeFour);
-
-var everyCookieHourFive = everyHour(localeFive);
-
 
 
 /* 4. Store the results for each location in a separate array... 
@@ -127,9 +92,6 @@ localeTwo.cookieSold = cookieDataTwo;
 localeThree.cookieSold = cookieDataThree;
 localeFour.cookieSold = cookieDataFour;
 localeFive.cookieSold = cookieDataFive;
-
-
-
 
 
 /* 6. Calculating the sum of these hourly totals; your output for each location should look like this:
@@ -166,11 +128,6 @@ function randNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
-// Generate a random number of customers per hour
-function randomCustomerHour(minCustomer, maxCustomer) {
-    return randNum(minCustomer, maxCustomer);
-}
-
 // Generate cookies sold for a particular hour
 function soldCookies(avgCookie, customerHour) {
     return Math.ceil(avgCookie * customerHour);
@@ -183,17 +140,6 @@ function populateHourlyCookies(locale) {
         cookieSold[i] = soldCookies(locale.avgCookie, locale.randomCustomer());
     }
     return cookieSold;
-}
-
-// Generate an array of cookies
-function everyHour(locale) {
-    var hoursOpen = [6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20];
-    var cookieEveryHour = [];
-
-    for (var i = 0; i < hoursOpen.length; i++) {
-        cookieEveryHour[i] = soldCookies(locale.avgCookie, locale.randomCustomer());
-    }
-    return cookieEveryHour;
 }
 
 // Render an unordered list
