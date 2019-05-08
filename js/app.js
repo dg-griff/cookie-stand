@@ -158,12 +158,18 @@ var newTable = render(sectionElement, "table");
 var headings = ['', '6:00am', '7:00am', '8:00am', '9:00am', '10:00am', '11:00am', '12:00pm', '1:00pm', '2:00pm', '3:00pm', '4:00pm', '5:00pm', '6:00pm', '7:00pm', '8:00pm', 'Daily Location Total'];
 
 // renderHeading();
-rowRender(newTable, headings);
-rowRender(newTable, cookieDataOne);
-rowRender(newTable, cookieDataTwo);
-rowRender(newTable, cookieDataThree);
-rowRender(newTable, cookieDataFour);
-rowRender(newTable, cookieDataFive);
+rowRenderTable(newTable, headings);
+rowRenderTable(newTable, cookieDataOne);
+rowRenderTable(newTable, cookieDataTwo);
+rowRenderTable(newTable, cookieDataThree);
+rowRenderTable(newTable, cookieDataFour);
+rowRenderTable(newTable, cookieDataFive);
+
+
+
+
+/******************************************************/
+
 
 
 
@@ -253,9 +259,116 @@ function renderHeading() {
 }
 
 // Create a row
-function rowRender(table, dataArray) {
+function rowRenderTable(table, dataArray) {
     var newRow = render(table, "tr");
     for (var f = 0; f < dataArray.length; f++) {
         render(newRow, "td", dataArray[f]);
     }
 }
+
+// Add row from form submission
+function newRowForm(address, minCust, maxCust, cookieAverage) {
+    // Get reference to table
+    var addressTable = document.getElementById("table-data");
+
+    // Create row
+    var addressRow = document.createElement("tr");
+
+    // Add row to table
+    addressTable.appendChild(addressRow);
+
+    // Add address name to row
+    var addressName = document.createElement("td");
+    addressRow.appendChild(addressName);
+    addressName.textContent = address;
+
+    // Add address name to row
+    var minCustName = document.createElement("td");
+    addressRow.appendChild(minCustName);
+    addressName.textContent = minCust;
+
+    // Add address name to row
+    var maxCustName = document.createElement("td");
+    addressRow.appendChild(maxCustName);
+    addressName.textContent = maxCust;
+
+    // Add address name to row
+    var avgCookieName = document.createElement("td");
+    addressRow.appendChild(avgCookieName);
+    addressName.textContent = cookieAverage;
+}
+
+// Handle form submission
+function handleSubmission(event) {
+    event.preventDefault();
+
+    // var localeTable = document.getElementById("table-data");
+    
+    var address = event.target.addressField.value;
+    console.log("address entered was ", address);
+
+    var minCustomer = event.target.minCustomerField.value;
+    console.log("minCustomer entered was ", minCustomer);
+
+    var maxCustomer = event.target.maxCustomerField.value;
+    console.log("maxCustomer entered was ", maxCustomer);
+
+    var avgCookie = event.target.avgCookieField.value;
+    console.log("avgCookie entered was ", avgCookie);
+    
+
+    // Create new locale object using form data
+    var formLocale = new Locale(address, minCustomer, maxCustomer, avgCookie);
+    console.log(formLocale);
+
+    // Calculate random number of customers for form locale
+    var formRandCust = randomCustomerHour(formLocale.minCustomer, formLocale.maxCustomer);
+    console.log(formRandCust);
+
+    // Calculate cookes sold for each other from form locale
+    var everyCookieHourForm = everyHour(formLocale);
+    console.log(everyCookieHourForm);
+
+    // Store hourly cookie totals in an array for locale form
+    var formCookieData = populateHourlyCookies(formLocale);
+    console.log(formCookieData);
+
+    // Calculate sum of cookies sold for the day for locale form
+    var formCookieSum = formCookieData.reduce(getCookieTotal);
+    console.log(formCookieSum);
+
+    // Add cookie total to end of the locale array from form
+    formCookieData.push(formCookieSum);
+    console.log(formCookieData);
+
+    // Add locale address to the front of the locale array from form
+    formCookieData.unshift(address);
+    console.log(formCookieData);
+
+    rowRenderTable(newTable, formCookieData);
+
+
+    // var addressRow = document.createElement("tr");
+
+    // var addressColumn = document.createElement("td");
+    // addressColumn.textContent = address;
+    // addressRow.appendChild(addressColumn);
+
+    // var minCustColumn = document.createElement("td");
+    // minCustColumn.textContent = minCustomer;
+    // addressRow.appendChild(minCustColumn);
+
+    // var maxCustColumn = document.createElement("td");
+    // maxCustColumn.textContent = maxCustomer;
+    // addressRow.appendChild(maxCustColumn);
+
+    // var avgCookieColumn = document.createElement("td");
+    // avgCookieColumn.textContent = avgCookie;
+    // addressRow.appendChild(avgCookieColumn);
+
+    // localeTable.appendChild(addressRow);
+}
+
+var localeForm = document.getElementById("locale-form");
+
+localeForm.addEventListener("submit", handleSubmission);
