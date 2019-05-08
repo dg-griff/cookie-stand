@@ -90,6 +90,9 @@ table {
 
 #locale-form {
   margin: 25px 0 0;
+  border: 2px solid white;
+  width: 315px;
+  padding: 10px;
 }
 
 
