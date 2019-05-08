@@ -27,42 +27,11 @@ var localeFive = new Locale('Alki', 2, 16, 4.6);
 /* 2. Generate a random number of customers per hour 
 using the randomCustomerHour function. 
 Store the customers generated for each location in a variable */
-var custHourOne = localeOne.randomCustomer();
-// console.log(`Random number of customers generated for localeOne: ${custHourOne} customers`);
-
-var custHourTwo = localeTwo.randomCustomer();
-var custHourThree = localeThree.randomCustomer();
-var custHourFour = localeFour.randomCustomer();
-var custHourFive = localeFive.randomCustomer();
-
-
 
 /* 3. Calculate and store the simulated amounts of cookies 
 purchased for each hour at each location 
 using average cookies purchased and the random number 
 of customers generated. */
-
-// Cookies sold for 1 hour
-var cookieHourOne = soldCookies(localeOne.avgCookie, localeOne.randomCustomer());
-// console.log(`Total cookies sold for 1 hour at ${localeOne.address}: ${cookieHourOne} cookies`);
-
-var cookieHourTwo = soldCookies(localeTwo.avgCookie, localeTwo.randomCustomer());
-var cookieHourThree = soldCookies(localeThree.avgCookie, localeThree.randomCustomer());
-var cookieHourFour = soldCookies(localeFour.avgCookie, localeFour.randomCustomer());
-var cookieHourFive = soldCookies(localeFive.avgCookie, localeFive.randomCustomer());
-
-
-// Cookies sold for each hour
-
-var everyCookieHourOne = everyHour(localeOne);
-// console.log(`Cookies sold for each hour at ${localeOne.address}: ${everyCookieHourOne}`);
-
-var everyCookieHourTwo= everyHour(localeTwo);
-var everyCookieHourThree = everyHour(localeThree);
-var everyCookieHourFour = everyHour(localeFour);
-var everyCookieHourFive = everyHour(localeFive);
-
-
 
 /* 4. Store the results for each location in a separate array... 
 perhaps as a property of the object representing that location */
@@ -125,16 +94,6 @@ cookieDataFour.push(cookieSumFour);
 cookieDataFive.push(cookieSumFive);
 
 
-/* 5. Display the values of each array as unordered lists in the browser 
-
-// Render the array as an UL on the sales page
-renderUl(cookieDataOne, 'reportOne', localeOne, 'headingOne', cookieSumOne); // Array for LocaleOne
-renderUl(cookieDataTwo, 'reportTwo', localeTwo, 'headingTwo', cookieSumTwo); // Array for LocaleTwo
-renderUl(cookieDataThree, 'reportThree', localeThree, 'headingThree', cookieSumThree); // Array for LocaleThree
-renderUl(cookieDataFour, 'reportFour', localeFour, 'headingFour', cookieSumFour); // Array for LocaleFour
-renderUl(cookieDataFive, 'reportFive', localeFive, 'headingFive', cookieSumFive); // Array for LocaleFive */
-
-
 /******************************************************/
 /* Lab 07 */
 
@@ -164,13 +123,6 @@ rowRenderTable(newTable, cookieDataTwo);
 rowRenderTable(newTable, cookieDataThree);
 rowRenderTable(newTable, cookieDataFour);
 rowRenderTable(newTable, cookieDataFive);
-
-
-
-
-/******************************************************/
-
-
 
 
 /******************************************************/
@@ -372,6 +324,3 @@ function handleSubmission(event) {
 var localeForm = document.getElementById("locale-form");
 
 localeForm.addEventListener("submit", handleSubmission);
-
-
-// Calculate the total cookies sold for each hour, across locaales.
