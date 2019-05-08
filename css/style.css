@@ -106,8 +106,13 @@ th {
   /* font-size: 0.85em; */
 }
 
-#addressField, #minCustomerField, #maxCustomerField, #avgCookieField, #add, #reset {
+#addressField, #minCustomerField, #maxCustomerField, #avgCookieField, #add, #reset, #formLabel {
   display: block;
+  margin: 0 0 10px 0;
+}
+
+#formLabel {
+  text-decoration: underline;
 }
 
 /* #field {
