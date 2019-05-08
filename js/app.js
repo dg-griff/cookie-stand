@@ -372,3 +372,6 @@ function handleSubmission(event) {
 var localeForm = document.getElementById("locale-form");
 
 localeForm.addEventListener("submit", handleSubmission);
+
+
+// Calculate the total cookies sold for each hour, across locaales.
