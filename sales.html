@@ -40,7 +40,29 @@
             </header>
 
             <section id="table-data">
+            </section>
 
+            <section>
+                <form action="#" id="locale-form" autocomplete="off">
+                    <fieldset id="field">
+                        <legend id="formLabel">Add New Locale</legend>
+
+                        <label for="address">Enter address:</label>
+                        <input type="text" name="address-field" id="addressField" maxlength="12" required />
+
+                        <label for="minCustomer">Enter minimum customers per hour:</label>
+                        <input type="number" name="minCust-field" id="minCustomerField" min="1" max="15" required />
+
+                        <label for="maxCustomer">Enter maximum customers per hour:</label>
+                        <input type="number" name="maxCust-field" id="maxCustomerField" min="16" max="36" required />
+
+                        <label for="avgCookie">Enter average cookies sold per customer:</label>
+                        <input type="number" name="avgCookie-field" id="avgCookieField" min="1" max="5" required />
+
+                        <button type="submit" id="add">Submit New Locale</button>
+                        <button type="reset" id="reset">Reset Form</button>
+                    </fieldset>
+                </form>
             </section>
         </main>
         <footer>

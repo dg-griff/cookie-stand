@@ -88,6 +88,11 @@ table {
   font-size: 0.95em;
 }
 
+#locale-form {
+  margin: 25px 0 0;
+}
+
+
 td {
   margin: 15px 0 0;
   border: 2px solid white;
@@ -100,6 +105,19 @@ th {
   padding: 10px 5px;
   /* font-size: 0.85em; */
 }
+
+#addressField, #minCustomerField, #maxCustomerField, #avgCookieField, #add, #reset, #formLabel {
+  display: block;
+  margin: 0 0 10px 0;
+}
+
+#formLabel {
+  text-decoration: underline;
+}
+
+/* #field {
+  background-color: white;
+} */
 
 @keyframes zoomIn {
     from {
