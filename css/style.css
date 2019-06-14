@@ -9,6 +9,7 @@ body {
     background-color: black;
     /* margin-left: 10px;
     margin-right: 10px; */
+    padding: 0 10px;
 }
 
 .navi {
@@ -55,8 +56,9 @@ h1 {
 
 h3 {
     text-decoration: underline;
+    text-align: center;
     font-size: 1.75em;
-    padding: 30px 10px;
+    padding: 0 0 30px 0;
 }
 
 h4 {
@@ -200,4 +202,82 @@ th {
     animation-name: pulse;
     animation-duration: 3s;
     animation-iteration-count: infinite;
+}
+
+p.info {
+  margin: 50px 0 50px 0;
+  line-height: 1.6;
+}
+
+.event:hover {
+  color: white;
+  background-color: black;
+  border-color: salmon;
+}
+
+a.event-gone {
+  text-decoration: line-through;
+}
+
+.event {
+  color: salmon;
+}
+
+main div {
+  margin: 0 0 30px 0;
+}
+
+li.event {
+  margin: 0 0 25px 0;
+}
+
+img.about {
+  width: 50%;
+  margin: 0 300px;
+}
+
+figcaption.about {
+  text-align: center;
+  margin: 25px 0 50px 0;
+}
+
+div.merch {
+ width: 30%;
+ float: left;
+}
+
+img.merch {
+  width: 50%;
+  margin: 0 5px 0 5px;
+}
+
+figcaption.merch {
+  margin: 0 auto;
+
+}
+
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+section#contact {
+  /* background-color: white; */
+  padding: 25px 0 25px 0;
+}
+
+section#locate {
+  padding: 25px 0 25px 0;
+  /* background-color: salmon; */
+}
+
+body {
+  background-image: url("../img/seattle-sea.jpg");
+  color: salmon;
+  /* font-size: 1.5em; */
+}
+
+div.content {
+  text-align: center;
 }
